@@ -1,5 +1,5 @@
 ---
-title: <center> Rapport d'étude statistique pour UNICEF Argentine </center>
+title: <center> Rapport d'étude statistique pour UNICEF Argentine</center>
 date: "12 mars 2022"
 author : "Rahma GUETIB M1 MECI - cabinet d'étude SOCIODEV"
 output:
@@ -18,31 +18,31 @@ knitr::opts_chunk$set(cache = TRUE)
 
 # **Introduction et rappel du besoin**
 
-La division Argentine de l'UNICEF souhaite proposer deux types de programme de cash transfert, en plus d'interventions déjà mise en place notamment dans le contexte de crise sanitaire de Covid-19. Il s'agit de transferts monétaires vers des ménages ciblés. Ces deux types de programme sont destinés à des populations spécifiques d'Argentine résidants en dehors de la capitale (Buenos Aires). Ils ont pour but d'aider ces derniers à faire face à la crise sanitaire. Ces deux programmes sont les suivants : 
-  
-- **"Women empowerment"** : ce programme est à destination des femmes seules avec enfants. Il a pour but d'aider ce type de population particulièrement vulnérable à sortir de la pauvreté notamment en renforçant leur capacité d'autonomisation. Ce sont des populations résidents dans les deux provinces les plus vulnérables.
+La division Argentine de l'UNICEF souhaite proposer deux types de programme de cash transfert, en plus d'interventions déjà mises en place notamment dans le contexte de crise sanitaire de Covid-19. Il s'agit de transferts monétaires vers des ménages ciblés. Ces deux types de programme sont destinés à des populations spécifiques d'Argentine qui résident en dehors de la capitale (Buenos Aires). Ils ont pour but d'aider ces derniers à faire face à la crise sanitaire. Ces deux programmes sont les suivants : 
 
-- **"No-Poor"** : ce programme est à destination des familles vulnérables. Sont considérées comme telles les familles ayant un revenu supérieur au seuil de pauvreté mais inferieur à 5 fois ce seuil. Il a pour but de les aider à ne pas tomber sous le seuil de pauvreté. Ces populations résdident dans les deux provinces les plus riches et les mieux dotées en matière de developpement. 
+- **"Women empowerment"** : ce programme est à destination des femmes seules avec enfants. Il a pour but d'aider ce type de population particulièrement vulnérable à sortir de la pauvreté notamment en renforçant leur capacité d'autonomisation. Ce sont des populations habitants dans les deux provinces les plus vulnérables.
 
-  
-L'UNICEF Argentine souhaite donc qu'on lui indique exactement les régions qui correspondraient le plus aux deux profils recherchés pour que cette double intervention soit la plus efficace possible en 2022. Autrement dit, l'objet de notre étude sera de determiner les deux provinces les plus vulnérables ainsi que les deux provinces les plus riches et plus développées pour que l'UNICEF puissent mettre en place ce pragramme de la manière la plus efficace possible, dans les lieux adéquats.
+- **"No-Poor"** : ce programme est à destination des familles vulnérables. Sont considérées comme telles les familles ayant un revenu supérieur au seuil de pauvreté, mais inférieur à 5 fois ce seuil. Il a pour but de les aider à ne pas tomber sous le seuil de pauvreté. Ces populations résident dans les deux provinces les plus riches et les mieux dotées en matière de développement. 
 
-Pour ce faire, nous procederons en plusieurs étapes. 
-- Tout d'abord, nous discuterons à propos du cadre théorique de cette intervention, ceci nous permettera notamment de choisir de bonnes variables à prendre en compte dans notre analyse
+
+L'UNICEF Argentine souhaite donc qu'on lui indique exactement les régions qui correspondraient le plus aux deux profils recherchés pour que cette double intervention soit la plus efficace possible en 2022. Autrement dit, l'objet de notre étude sera de déterminer les deux provinces les plus vulnérables ainsi que les deux provinces les plus riches et plus développées pour que l'UNICEF puisse mettre en place ce programme de la manière la plus efficace possible, dans les lieux adéquats.
+
+Pour ce faire, nous procéderons en plusieurs étapes. 
+- Tout d'abord, nous discuterons à propos du cadre théorique de cette intervention, ceci nous permettra notamment de choisir de bonnes variables à prendre en compte dans notre analyse
 - Ensuite, nous décrirons les données que nous avons à disposition
 - Après cela, nous étudierons nos données et, en particulier, nous ferons, d'une part, une analyse factorielle dans le but de "réduire les dimensions" et n'utiliser que deux axes résumant l'ensemble de nos variables ; et d'autre part, un partitionnement de notre population (en utilisant la méthode des K-means et du Clustering Hierarchique que nous définirions en temps voulu)
-- Enfin, nous concluerons en evoquant les deux provinces qui corresponderaient le mieux à chacun des deux programmes avant de discuter de ces résultats. 
+- Enfin, nous conclurons en évoquant les deux provinces qui correspondraient le mieux à chacun des deux programmes avant de discuter de ces résultats. 
 
 
-*A la fin de ce rapport se trouve une annexe où l'on peut y retrouver des graphiques complémentaires qui ne sont pas forcement très pertinents à mettre dans le corps de l'étude mais qui reste important pour l'analyse (nous les mettons donc en annexe pour information). On peut également y retrouver le code R qui a été nécéssaire à la réalisation de cette étude*
+*À la fin de ce rapport se trouve une annexe où l'on peut y retrouver des graphiques complémentaires qui ne sont pas forcément très pertinents à mettre dans le corps de l'étude, mais qui reste important pour l'analyse (nous les mettons donc en annexe pour information). On peut également y retrouver le code R qui a été nécessaire à la réalisation de cette étude.*
 
 
 # **Discussion du cadre théorique (revue de littérature)**
 
-L'Argentine est la deuxième puissance économique d'Amerique Latine après le Brésil si l'on raisonne en PIB nominal (PIB en prix courant, non corrigé de l'inflation). Pleines d'avantages tel que sa richesse agricole, ses capacités industrielles (mines) ou encore une main-d'oeuvre qualifiée importante, l'Argentine connait aussi un fort niveau de chômage, de l'inflation, des difficultés financières, et des inégalités sociales importantes qui s'accroissent. De ce fait, l'Argentine à souvent eu recours à des orgnisations économiques internationales tel que le FMI (Fond Monétaire International qui a, entre autres, pour but de garantir la stabilité financière des pays).
-Concernant les inégalités sociales, on comprends donc que l'Argentine est caractérisée par des provinces developpées et d'autres qui le sont moins.
+L'Argentine est la deuxième puissance économique d'Amérique Latine après le Brésil si l'on raisonne en PIB nominal (PIB en prix courant, non corrigé de l'inflation). Pleines d'avantages tels que sa richesse agricole, ses capacités industrielles (mines) ou encore une main-d'œuvre qualifiée importante, l'Argentine connaît aussi un fort niveau de chômage, de l'inflation, des difficultés financières, et des inégalités sociales importantes qui s'accroissent. De ce fait, l'Argentine a souvent eu recours à des organisations économiques internationales telles que le FMI (Fond Monétaire International qui a, entre autres, pour but de garantir la stabilité financière des pays).
+Concernant les inégalités sociales, on comprends donc que l'Argentine est caractérisée par des provinces développées et d'autres qui le sont moins.
 
-L'objet de notre étude est de différencier les provinces argentines en deux groupes : celles qui sont developpées et celles qui sont plutôt pauvres pour *in fine* determiner les deux plus développées ainsi que les deux plus pauvres. Pour cela nous disposons d'une base de données composées de 10 variables et de 22 observations.
+L'objet de notre étude est de différencier les provinces argentines en deux groupes : celles qui sont développées et celles qui sont plutôt pauvres pour *in fine* déterminer les deux plus développées ainsi que les deux plus pauvres. Pour cela, nous disposons d'une base de données composées de 10 variables et de 22 observations.
 Les variables sont les suivantes : 
 
 - **gdp** : le PIB en dollar
@@ -61,23 +61,24 @@ Les variables sont les suivantes :
 
 - **pop** : la population (le total des habitants)
 
-- **movie_theatres_per_cap** : les salles de cinémas disponible (par habitants)
+- **movie_theatres_per_cap** : les salles de cinémas disponibles (par habitants)
 
 - **doctors** : le nombre de médecins par habitants
 
 
 Tout d'abord, nous retirerons la ville-province de Buenos Aires car les transferts monétaires seront uniquement à destination des argentins qui résident en dehors de Buenos Aires. Nous avons donc finalement 21 observations.
-Aussi, nous utiliserons la variable "**pop_per_cap**" correspondant au PIB par habitant. En effet, il n'est pas jusdicieu d'utiliser le seul PIB sans le rapporter au nombre d'habitant : les comparaisons entre des régions de taille diverses peuvent être fortement biaisées et les interpretations aussi.
-Nous procédons aussi à un changement concernant la varibale "**movie_theatres_per_cap**" : au lieu d'avoir ce ratio par habitant nous avons décidé de l'avoir pour 100 000 habitants. Nous prenons en compte cette variable car nous pouvons penser qu'une province developpée disposera d'un plus grand nombre de cinéma, ce qui ne sera pas frocement le cas des provinces les moins developpées. 
+
+Aussi, nous utiliserons la variable "**pop_per_cap**" correspondant au PIB par habitant. En effet, il n'est pas judicieux d'utiliser le seul PIB sans le rapporter au nombre d'habitant : les comparaisons entre des régions de taille diverses peuvent être fortement biaisées et les interprétations aussi.
+Nous procédons aussi à un changement concernant la variable "**movie_theatres_per_cap**" : au lieu d'avoir ce ratio par habitant, nous avons décidé de l'avoir pour 100 000 habitants. Nous prenons en compte cette variable, car nous pouvons penser qu'une province développée disposera d'un plus grand nombre de cinéma, ce qui ne sera pas forcement le cas des provinces les moins développées. 
 
 Nous ne nous sommes pas arrêtés là concernant le choix des variables : il n'est pas très pertinent de toutes les garder, même après ces modifications. 
 En effet, nous avons par exemple retirer la variable "birth_mortal" qui rend compte du taux de mortalité infantile : selon la Banque Mondiale dans une étude [disponible ici](https://donnees.banquemondiale.org/indicator/SH.DYN.MORT?locations=AR), ce taux n'a cessé de baisser depuis les années 1970 et est assez bas en 2020 (8 enfants de moins de 5 ans pour 1000 habitant en 2020 meurt à la naissance quand 72 mourraient en 1972).
-Egalement, dans la mesure où le manque d'infrastructure est un problème dans toute l'Argentine, et plus globalement dans toute l'Amérique du Sud (d'après l'étude "Time to address the infrastructure gap in Latin america" datant de 2017 de P.Krause pour Coface) nous ne pensons donc pas que cette variable puisse rendre compte de la pauvreté dans les provinces d'argentine ; nous l'avons donc retirer.
-Aussi, nous n'avons pas connaissance d'un nombre signficatif d'écoles abandonnées dans tel province et plutôt que dans tel autre en Argentine, ni seulement connaissance de ce phénomène qui soit assez signficatif dans tout le pays. C'est pourquoi, nous décidons de ne pas prendre en compte la variable "**school_dropout**".
+Également, dans la mesure où le manque d'infrastructure est un problème dans toute l'Argentine, et plus globalement dans toute l'Amérique du Sud (d'après l'étude "Time to address the infrastructure gap in Latin america" datant de 2017 de P.Krause pour Coface) nous ne pensons donc pas que cette variable puisse rendre compte de la pauvreté dans les provinces d'argentine ; nous l'avons donc retiré.
+Aussi, nous n'avons pas connaissance d'un nombre significatif d'écoles abandonnées dans tel province et plutôt que dans tel autre en Argentine, ni seulement connaissance de ce phénomène qui soit assez significatif dans tout le pays. C'est pourquoi, nous décidons de ne pas prendre en compte la variable "**school_dropout**".
 
-Parmi les variables que nous avons gardé il y a "**no_healthcare**". En effet, l'Argentine est un Etat fédérale qui accorde beaucoup de liberté aux provinces notamment en matière de santé. Ce faisant, d'après la Banque Mondiale (El Sector Salud Argentino : Situacion Actual y Opciones para Mejorar su Desempeno, Documento del Banco Mundial, Reporte n° 26144-AR, Julio de 2003.), le système de santé Argentin est inéquitable dans la mesure où il ne garantit pas l'accès aux soins aux populations qui n'ont pas de couverture de santé et il y a des disparités territoriales en terme d'offre de soins. La variable "no_helathcare" pourrait donc être prise en compte pour caractériser les provinces les moins développées.
-La varibale "**poverty**" rendant compte des personnes se situant sous le seuil de pauvreté peut également etre prise en compte pour caractériser ces provinces. 
-L'accès à l'éducation est un critère de developpement d'un pays, d'une région ou d'une province. Nous pourrions donc prendre en compte la variable "**illiteracy**" qui rendrait compte, dans une province où ce taux est élevé, d'un faible niveau de developpement. 
+Parmi les variables que nous avons gardées, il y a "**no_healthcare**". En effet, l'Argentine est un Etat fédéral qui accorde beaucoup de liberté aux provinces notamment en matière de santé. Ce faisant, d'après la Banque Mondiale (El Sector Salud Argentino : Situacion Actual y Opciones para Mejorar su Desempeno, Documento del Banco Mundial, Reporte n° 26144-AR, Julio de 2003.), le système de santé Argentin est inéquitable dans la mesure où il ne garantit pas l'accès aux soins aux populations qui n'ont pas de couverture de santé et il y a des disparités territoriales en terme d'offre de soins. La variable "no_helathcare" pourrait donc être prise en compte pour caractériser les provinces les moins développées.
+La variable "**poverty**" rendant compte des personnes se situant sous le seuil de pauvreté peut également être prise en compte pour caractériser ces provinces. 
+L'accès à l'éducation est un critère de développement d'un pays, d'une région ou d'une province. Nous pourrions donc prendre en compte la variable "**illiteracy**" qui rendrait compte, dans une province où ce taux est élevé, d'un faible niveau de développement. 
 
 
 
@@ -136,7 +137,7 @@ Après avoir vu un résumé statistique de nos variables, réduisons maintenant 
 
 ## ***[Corrélations entre nos variables]{style="color:#234099"}***
 
-Tout d'abord nous devons nous assurer que nos variables ont un lien entre elles, sinon notre étude n'a pas de sens.
+Tout d'abord, nous devons nous assurer que nos variables ont un lien entre elles, sinon notre étude n'a pas de sens.
 
 ```{r,echo=FALSE,warning=FALSE, message=FALSE}
 mat_r <- cor(arg)
@@ -144,11 +145,10 @@ library(corrplot)
 corrplot(mat_r, method="circle",type = "lower")
 ```
 
-Ici c'est bien le cas : elles ont un lien soit positif soit négatif et qui est fort dans tous les cas.
+Ici, c'est bien le cas : elles ont un lien qui est soit positif soit négatif et qui est fort dans tous les cas.
 
-
-De même, nous devons nous assurer que la réduction des dimensions est possible et pertiente. Pour cela nous utilisons un test statistique : le test de Bartlett. Si l'hypothèse nulle (H0) -qui est qu'il n'y a pas de lien, pas de corrélation entre toutes les variables- est rejetté alors cela signfie qu'au contraire, il y a bien une relation entre elles.
-C'est simplement une façon théorique et formelle de procéder. Ici nous rejettons bien cette hypothèse nulle (cf.annexe n°1) : il y a une relation très signficative entre nos variables. Nous pouvons alors passer à l'étape de l'analyse factorielle (réduction des dimensions).
+De même, nous devons nous assurer que la réduction des dimensions est possible et pertinente. Pour cela, nous utilisons un test statistique : le test de Bartlett. Si l'hypothèse nulle (H0) -qui est qu'il n'y a pas de lien, pas de corrélation entre toutes les variables- est rejeté alors cela signifie qu'au contraire, il y a bien une relation entre elles.
+C'est simplement une façon théorique et formelle de procéder. Ici, nous rejetons bien cette hypothèse nulle (cf.annexe n°1) : il y a une relation très significative entre nos variables. Nous pouvons alors passer à l'étape de l'analyse factorielle (réduction des dimensions).
 
 
 ## ***[Réduction des dimensions, analyse factorielle :]{style="color:#234099"}***
@@ -162,9 +162,9 @@ res.pca = PCA(arg, graph = F )
 fviz_eig(res.pca, addlabels = T)
 ```
 
-La réduction des dimensions consiste en extraire le minimum de facteur pour tenter d'expliquer le maximum du lien entre eux. Dit autrement, elle consiste en choisir le plus petit nombre possible de dimensions/axes/composantes principales interpretables qui permettent toutefois de capter un maximum d'informations. Nous choisissons ce nombre "idéal" à l'aide d'une représentation graphique : le "Scree Plot".
+La réduction des dimensions consiste en extraire le minimum de facteur pour tenter d'expliquer le maximum du lien entre eux. Dit autrement, elle consiste en choisir le plus petit nombre possible de dimensions/axes/composantes principales interprétables qui permettent toutefois de capter un maximum d'information. Nous choisissons ce nombre "idéal" à l'aide d'une représentation graphique : le "Scree Plot".
 
-Ici, on constate qu'en prenant en compte deux dimensions nous pouvons expliquer près de 84% de la variance ce qui nous convient. De même, il y a une rupture de pente après la seconde dimension ce qui nous indique que prendre en compte deux diemnsions est sans doute le choix le plus pertinent.
+Ici, on constate qu'en prenant en compte deux dimensions, nous pouvons expliquer près de 84% de la variance ce qui nous convient. De même, il y a une rupture de pente après la seconde dimension ce qui nous indique que prendre en compte deux dimensions est sans doute le choix le plus pertinent.
 
 
 ### Representation des variables sur les axes en question 
@@ -175,11 +175,11 @@ fviz_contrib(res.pca, choice = "var", axes = 1)
 fviz_contrib(res.pca, choice = "var", axes = 2)
 ```
 
-Comme dit plus haut, nous choissons donc deux axes.
+Comme dit plus haut, nous choisissons donc deux axes.
 
 Les variables qui contribuent le plus au premier axe sont les variables "*no_healthcare*" et "*illiteracy*". On pourrait alors penser que ce premier axe constituerait notre axe "**Provinces les moins developpées**". Ainsi, les individus se situant sur la projection de ces variables feraient parti, a priori, des provinces les moins développées.
 
-Aussi, les variables qui contribuent le plus au second axe sont les variables "*poverty*", "*gdp_per_cap*" et "*movie_theatres_per_100000*". On pourrait alors penser que ce second axe constituerait notre axe "**Provinces les plus développées**". Ce seraient donc toutes les provinces ayant un PIB/habitant élevé, le plus de salles de cinémas pour 100 000 habitants et le moins de pauvreté qui se situeraient sur la projection de cet axe.
+Aussi, les variables qui contribuent le plus au second axe sont les variables "*poverty*", "*gdp_per_cap*" et "*movie_theatres_per_100000*". On pourrait alors penser que ce second axe constituerait notre axe "**Provinces les plus développées**". Ce seraient donc toutes les provinces ayant un PIB/habitant élevé, le plus de salles de cinéma pour 100 000 habitants et le moins de pauvreté qui se situeraient sur la projection de cet axe.
 
 La qualité globale de ces variables en terme de representation sur les axes est plutôt bonne (cf. annexe n°2) même si la representation sur l'axe 1 est meilleure.
 
@@ -201,13 +201,14 @@ En ce qui conerne les individus, on constate également qu'ils contribuent plus 
 fviz_pca_var(res.pca , col.var = "cos2", repel = TRUE)
 ```
 
+
 Que ce soit en terme de qualité de la représentation sur les axes ou de contribution aux axes, le graphique est le même. Nous n'en garderons donc un seul (cf. annexe n°4 pour voir le second). 
 
 Ce graphique nous permet notamment de voir que nos variables sont plutôt bien representées car sont proches de la bordure du cercle (les flèches sont assez longues).
 
-De même, il nous permet de voir que les variables d'analphabetisme, de non-accès aux soins de santé et de pauvreté sont plutôt corrélées entre elles (ce qui confirme ce que nous avons vu plus haut dans le graphique représentant les corrélation deux à deux). Nous pouvons dire cela car l'angle entre ces variables est aigu. Aussi, les variables PIB/habitant et nombre de salle de cinéma pour 100 000 habitants sont aussi corrélées entre elles (angle aigu également).
+De même, il nous permet de voir que les variables d'analphabétisme, de non-accès aux soins de santé et de pauvreté sont plutôt corrélées entre elles (ce qui confirme ce que nous avons vu plus haut dans le graphique représentant les corrélations deux à deux). Nous pouvons dire cela car l'angle entre ces variables est aigu. Aussi, les variables PIB/habitant et nombre de salle de cinéma pour 100 000 habitants sont aussi corrélées entre elles (angle aigu également).
 
-Supperposons maintenant nos individus sur nos variables ainsi représentées dans un graphique. Cela nous permettera notamment d'avoir une idée des groupes que nous pouvons former. 
+Superposons maintenant nos individus sur nos variables ainsi représentées dans un graphique. Cela nous permettra notamment d'avoir une idée des groupes que nous pouvons former. 
 
 
 ### Le biplot ou la representation des variables ainsi que des individus sur les deux axes choisis (les composantes principales)
@@ -219,12 +220,13 @@ fviz_pca_biplot(res.pca, repel = TRUE, pointsize = "cos2" )
 
 ```
 
-Ce graphique nous permet en effet d'avoir une idée du clustering qui pourra être fait : les provinces les plus développées se situeraient à gauche quand les provinces les moins developpées se situeraient à droite.
-On peut d'ailleurs anticiper que le groupe des provinces les plus developpées sera plus grand, plus dispersé (aura une variance intra groupe assez élevé) dans la mesure où il y a des provinces qui se caractérisent par un fort PIB/habitant (Santa Cruz notamment) mais egalement des provinces qui se caracterisent plutôt par un fort nombre de salle de cinéma pour 100 000 habitants (La Pampa notamment).
-Enfin, on peut également ajouter que certains individus (ceux qui se situent au milieu du graphique) sont moins bien representés que les autres (ils ont un $cos^2$ plus faible). 
 
-Maintenant que nous avons choisis nos deux axes, étape primordiale pour réaliser notre étude, rentrons dans le vif du sujet : qu'elles sont les provinces les plus dévéloppées et qu'elles sont celles qui ne le sont pas (ou qui le sont moins) ? 
-Pour répondre à cette question, nous utiliserons des lagorithmes de partionnement et deux en particuliers : celui des K-means et le Custering Ascendant Hierarchique (CAH). Nous verrons que ces deux algorithmes produisent le même résultat, les mêmes regroupements ce qui rend compte de la robustesse de nos modèles.
+Ce graphique nous permet en effet d'avoir une idée du clustering qui pourra être fait : les provinces les plus développées se situeraient à gauche quand les provinces les moins développées se situeraient à droite.
+On peut d'ailleurs anticiper que le groupe des provinces les plus développées sera plus grand, plus dispersé (aura une variance intra groupe assez élevé) dans la mesure où il y a des provinces qui se caractérisent par un fort PIB/habitant (Santa Cruz notamment) mais également des provinces qui se caractérisent plutôt par un fort nombre de salle de cinéma pour 100 000 habitants (La Pampa notamment).
+Enfin, on peut également ajouter que certains individus (ceux qui se situent au milieu du graphique) sont moins bien représentés que les autres (ils ont un $cos^2$ plus faible). 
+
+Maintenant que nous avons choisi nos deux axes, étape primordiale pour réaliser notre étude, rentrons dans le vif du sujet : qu'elles sont les provinces les plus développées et qu'elles sont celles qui ne le sont pas (ou qui le sont moins) ? 
+Pour répondre à cette question, nous utiliserons des algorithmes de partionnement et deux en particuliers : celui des K-means et le Custering Ascendant Hierarchique (CAH). Nous verrons que ces deux algorithmes produisent le même résultat, les mêmes regroupements ce qui rend compte de la robustesse de nos modèles.
 
 
 ## ***[Clustering : regroupement]{style="color:#234099"}***
@@ -237,8 +239,8 @@ fviz_dist(distanceE,
           gradient = list(low = "grey", mid = "white", high = "red"))
 ```
 
-Nous commençons d'abord par faire une matrice des distances. Elle rend compte de la plus ou moins proximité de certains individus entre eux. Nous pouvons alors dire que les indiivdus en orange feront parti d'un groupe et ceux en gris feront parti d'un autre groupe. 
-Toutefois, nous n'avons pas d'information sur les groupes en question : ce sont les oranges ou les gris qui sont les plus developpées ?
+Nous commençons d'abord par faire une matrice des distances. Elle rend compte de la plus ou moins proximité de certains individus entre eux. Nous pouvons alors dire que les individus en orange feront partie d'un groupe et ceux en gris feront partie d'un autre groupe. 
+Toutefois, nous n'avons pas d'information sur les groupes en question : ce sont les oranges ou les gris qui sont les plus développées ?
 
 ### K-means
 
@@ -250,9 +252,9 @@ fviz_cluster(km1, data = arg, xlab="", ylab="")+ theme_minimal()
 
 ```
 
-L'algorithme des K-means nous permet alors de voir que le cluster n°1 est le groupe d'individus le plus vulnérable et le cluster n°2 est le groupe d'individus le plus developpée. C'est bien l'intuition que nous avions eu plus haut. 
 
-*Nb : nous aurions pu faire plus de deux groupes et utiliser des outils de visualisation (tel que l'indice "silhouette", le "coude d'effondrement" ou encore l'écart statistique) pour nous aider à determiner le nombre optimal de cluster à faire. Ce n'est pas ce que nous avons fait car l'objet de notre étude est de faire __deux__ groupes pour ensuite extraire parmi l'un des deux les deux provinces les moins developpées et parmi l'autre les deux provinces les plus developpées. Notons toutefois que ces indicateur concernant le nombre de cluster idéal nous signal aussi de faire 2 groupes (cf. annexe n°5)*
+L'algorithme des K-means nous permet alors de voir que le cluster n°1 est le groupe d'individus le plus vulnérable et le cluster n°2 est le groupe d'individus le plus développé. C'est bien l'intuition que nous avions eue plus haut. 
+*NB : nous aurions pu faire plus de deux groupes et utiliser des outils de visualisation (tel que l'indice "silhouette", le "coude d'effondrement" ou encore l'écart statistique) pour nous aider à déterminer le nombre optimal de cluster à faire. Ce n'est pas ce que nous avons fait, car l'objet de notre étude est de faire __deux__ groupes pour ensuite extraire parmi l'un des deux les deux provinces les moins développées et parmi l'autre les deux provinces les plus développées. Notons toutefois que ces indicateurs concernant le nombre de cluster idéal nous signal aussi de faire 2 groupes (cf. annexe n°5)*
 
 
 ```{r,echo=FALSE,warning=FALSE, message=FALSE}
@@ -264,14 +266,14 @@ kable(MClust, digits = 6) %>% kable_classic()
 ```
 
 
+
 Nous avons résumé l'information sur le tableau ci-dessus.
 
-- On constate alors que nous avons bien un groupe de province developpées caractérisées par un taux de pauvreté assez élevé (13%) ; un taux de personnes n'ayant pas accès aux soins de santé assez élevé puisque plus de la moitié de la population de ces provinces sont dans ce cas ; un PIB/habitant plus faible (9$ par habitant), et un taux de population sans instruction assez élevé (environ 5%).
+- On constate alors que nous avons bien un groupe de province développée caractérisé par un taux de pauvreté assez élevé (13%) ; un taux de personnes n'ayant pas accès aux soins de santé assez élevé puisque plus de la moitié de la population de ces provinces sont dans ce cas ; un PIB/habitant plus faible (9$ par habitant), et un taux de population sans instruction assez élevé (environ 5%).
 
-- De même nous avons aussi un groupe de provinces beaucoup plus devloppées caractérisées notamment par un PIB/habitant plus élevé (24$ par habitant) ; un nombre de salle de cinéma pour 100 000 habitants plus important que dans l'autre groupe de provinces (environ 1 pour 100 000 habitants) ; un taux de personne se situant sous le seuil de pauvreté plus faible (environ 7%) ;  un taux de personne sans instruction d'environ 2%, et un taux de non accès aux soins de santé d'environ 44% par population active. Ce dernier reste tout de même assez élevé et s'explique notamment par le système de santé argentin que nous avons déjà pu évoquer.
+- De même, nous avons aussi un groupe de provinces beaucoup plus devloppées caractérisées notamment par un PIB/habitant plus élevé (24$ par habitant) ; un nombre de salle de cinéma pour 100 000 habitants plus important que dans l'autre groupe de provinces (environ 1 pour 100 000 habitants) ; un taux de personne se situant sous le seuil de pauvreté plus faible (environ 7%) ; un taux de personne sans instruction d'environ 2%, et un taux de non-accès aux soins de santé d'environ 44% par population active. Ce dernier reste tout de même assez élevé et s'explique notamment par le système de santé argentin que nous avons déjà pu évoquer.
 
-
-Avant de determiner les deux provinces les plus developpées parmi l'ensemble des plus devloppées et les deux plus vulnérables parmi l'ensemble des plus vulérable, voyons une seconde façon de partitionner ces provinces avec une autre méthode de clustering : la Classification Ascendente Hierarchique.
+Avant de déterminer les deux provinces les plus développées parmi l'ensemble des plus développées et les deux plus vulnérables parmi l'ensemble des plus vulnérables, voyons une seconde façon de partitionner ces provinces avec une autre méthode de clustering : la Classification Ascendente Hierarchique.
 
 
 ### Classification Ascendante Hierarchique (CAH)
@@ -297,11 +299,10 @@ fviz_dend(a2 , cex = 0.7 , k = 2,
   theme_minimal()
 ```
 
-On voit bien ici que, quelque soit la méthode de clustering choisi (k-means ou CAH), nous arrivons au même résultat : deux groupes composés des mêmes individus et ayant les mêmes caractéristiques (developpés *versus* peu développés). Cela prouve la robustesse de notre modèle.
+On voit bien ici que, quelle que soit la méthode de clustering choisie (k-means ou CAH), nous arrivons au même résultat : deux groupes composés des mêmes individus et ayant les mêmes caractéristiques (développés *versus* peu développés). Cela prouve la robustesse de notre modèle.
 
 
-A present, nous allons determiner qu'elles sont en particulier **les deux provinces les plus developpées parmi l'ensemble des provinces developpées d'Argentine** ainsi que **les deux provinces les plus vulnérables parmi l'ensemble des provinces vulnérables**.
-
+À présent, nous allons déterminer qu'elles sont en particulier **les deux provinces les plus développées parmi l'ensemble des provinces developpées d'Argentine** ainsi que **les deux provinces les plus vulnérables parmi l'ensemble des provinces vulnérables**.
 
 ### Les deux pronvinces les plus développées 
 
@@ -340,7 +341,7 @@ kable(slice(order_score1,1:2)) %>% kable_classic()
 
 ```
 
-Si l'on se base sur le score de pauvreté 1 que nous avons créé qui correspond à l'addition, pour chaque province, des 2 indicateurs de richesses qui constitue notre axe correspondant au niveau de developpement d'une province (PIB/habitant et nombre de cinéma pour 100 000 habitants), nous constatons que ce sont les provinces de **Santa Cruz** et de **Neuquen** qui sont les provinces les plus developpées. 
+Si l'on se base sur le score de pauvreté 1 que nous avons créé qui correspond à l'addition, pour chaque province, des 2 indicateurs de richesses qui constitue notre axe correspondant au niveau de développement d'une province (PIB/habitant et nombre de cinéma pour 100 000 habitants), nous constatons que ce sont les provinces de **Santa Cruz** et de **Neuquen** qui sont les provinces les plus développées. 
 
 ```{r,echo=FALSE,warning=FALSE}
 arg2ter <- mutate(arg2, score_de_richesse2_mean  = (gdp_per_cap + movie_theatres_per_100000)/2)
@@ -348,7 +349,7 @@ order_mean1<-arrange(arg2ter, desc(score_de_richesse2_mean))
 kable(slice(order_mean1, 1:2)) %>% kable_classic()
 ```
 
-Il en est de même si l'on se base sur le second score de richesse que nous avons créé qui correspond à une moyenne, individus par individus, des deux indicateurs de developpement que nous avons retenus.
+Il en est de même si l'on se base sur le second score de richesse que nous avons créé qui correspond à une moyenne, individus par individus, des deux indicateurs de développement que nous avons retenus.
 
 
 ### Les deux provinces les plus vulnérables 
@@ -390,19 +391,19 @@ kable(slice(order_mean2, 1:2)) %>% kable_classic()
 
 ```
 
-De même ici, que l'on se base sur notre premier indicateur de pauvreté constitué de l'addition de notre 3 variables caracteristiques de la vulnérabilité (province par province) ou sur notre second indicateur qui est une moyenne de ces derniers (province par province également), nous arrivons à la même conclusion : ce sont les provinces de **Chaco** et **Formosa** qui sont les provinces les plus vulnérables parmi le groupe de province les plus vulnérables d'Argentine. 
+De même ici, que l'on se base sur notre premier indicateur de pauvreté constitué de l'addition de notre 3 variables caractéristiques de la vulnérabilité (province par province) ou sur notre second indicateur qui est une moyenne de ces derniers (province par province également), nous arrivons à la même conclusion : ce sont les provinces de **Chaco** et **Formosa** qui sont les provinces les plus vulnérables parmi le groupe de province les plus vulnérable d'Argentine. 
 
 
 # **Conclusion, recommandations et discussion**
 
-Nous voulions savoir quelles sont les pronvinces qui corresponderaient le plus aux deux profils recherchés à savoir, les 2 provinces les plus developpées (exception faite de Buenos Aires) et les 2 plus vulnérables. Cela, dans le but de permettre une intervention qui soit la plus efficace possible en ce qui concerne la mise en place des deux programmes "Women Empowerment" et "No-Poor".
+Nous voulions savoir quelles sont les provinces qui correspondraient le plus aux deux profils recherchés à savoir, les 2 provinces les plus développées (exception faite de Buenos Aires) et les 2 plus vulnérables. Cela, dans le but de permettre une intervention qui soit la plus efficace possible en ce qui concerne la mise en place des deux programmes "Women Empowerment" et "No-Poor".
 
 Notre étude nous permet alors de dire que, pour que l'intervention de l'UNICEF Argentine soit la plus efficace possible, <mark>le programme "Women empowerment" doit être mise en place dans les provinces de **Chaco** et **Farmosa** située au Nord du pays</mark>. Pour rappel, ce programme permetterait aux mères seules avec enfants de voir leurs capacités d'autonomisation renforcées.
-Quant au <mark>programme "No-Poor", il devrait plutôt être mis en place dans les provinces de **Santa Cruz** et **Neuquen**, provinces developpées</mark>. Pour rappel, ce dernier permettrait alors aux personnes y résidents de ne pas tomber sous le seuil de pauvreté.
+Quant au <mark>programme "No-Poor", il devrait plutôt être mis en place dans les provinces de **Santa Cruz** et **Neuquen**, provinces développées</mark>. Pour rappel, ce dernier permettrait alors aux personnes y résidents de ne pas tomber sous le seuil de pauvreté.
 
 
-Nonobstant, les indicatuers de richesse et de pauvreté dont nous disposons auraient pu être tout autre : taux de chômage, taux d'inflation, taux d'emploi informelle ... Ceci aurait pu changer notre analyse et nos résultats : d'autres provinces auraient pu être considérées comme les plus vulnérables, de même pour les provinces considérées comme les plus riches. 
-Ceci rend donc compte du fait que le choix des indicateurs n'est pas neutre, il permet de dire tel chose et pas tel autre. Quoiqu'il en soit, si l'on se base sur les indicateurs que nous avons à notre dispositions, nos résultats sont ceux cités plus haut. Et tout porte à croire que nos conclusions sont cohérente et robustes puisque sont similaires quelque soit la méthode de partitionnement adoptée.
+Nonobstant, les indicateurs de richesse et de pauvreté dont nous disposons auraient pu être tout autre : taux de chômage, taux d'inflation, taux d'emploi informel ... Ceci aurait pu changer notre analyse et nos résultats : d'autres provinces auraient pu être considérées comme les plus vulnérables, de même pour les provinces considérées comme les plus riches. 
+Ceci rend donc compte du fait que le choix des indicateurs n'est pas neutre, il permet de dire telle chose et pas telle autre. Quoiqu'il en soit, si l'on se base sur les indicateurs que nous avons à notre disposition, nos résultats sont ceux cités plus haut. Et tout porte à croire que nos conclusions sont cohérente et robustes puisque sont similaires quelle que soit la méthode de partitionnement adoptée.
 
 
 # **Annexe**
@@ -449,10 +450,10 @@ gap_stat <- clusGap(arg, FUN = kmeans,
                     K.max = 15, B = 50)
 fviz_gap_stat(gap_stat)+ theme_minimal()
 ```
-Ces methodes d'aide au choix du nombre de cluster à faire ne nous ont pas  été utile ici dans la mesure où nous voulions de toutes façons faire 2 clusters, peu importe ce que nous indique ces méthodes. Elles vont tout de même dans notre sens : elles indiquent que nous devons faire 2 groupes et c'est ce que nous avons fait.
+Ces methodes d'aide au choix du nombre de cluster à faire ne nous ont pas été utile ici dans la mesure où nous voulions de toutes façons faire 2 clusters, peu importe ce que nous indique ces méthodes. Elles vont tout de même dans notre sens : elles indiquent que nous devons faire 2 groupes et c'est ce que nous avons fait.
 
 
-Determiner la méthode de CAH :
+Déterminer la méthode de CAH :
 
 ```{r,echo=TRUE,warning=FALSE}
 # fonction AGNES
@@ -472,8 +473,8 @@ ac <- function(x)
 agnes(distanceE, method = x)$ac
 map_dbl(m, ac) 
 ```
-On constate qu'en utilisant la fonction AGNES, c'est avec la méthode de ward que le coefficient d'agglomération est le plus élevé (0.91)
-Nous avons utiliser la fonction AGNES avec la méthode de Ward pour faire notre classification. En efft, c'est celle qui donne le meilleure coefficient d'agglomeration. 
+On constate qu'en utilisant la fonction AGNES, c'est avec la méthode de Ward que le coefficient d'agglomération est le plus élevé (0.91)
+Nous avons utilisé la fonction AGNES avec la méthode de Ward pour faire notre classification. En efft, c'est celle qui donne le meilleur coefficient d'agglomeration. 
 
 
 Le dendogramme en question :
@@ -482,7 +483,7 @@ a2 <- agnes(distanceE, method = "ward")
 pltree(a2, cex = 0.6, hang = -1, main = "Dendrogramme (AGNES)")
 ```
 
-Nous l'avons visualiser d'une autre façon dans le corps de l'étude.
+Nous l'avons visualisé d'une autre façon dans le corps de l'étude.
 
 
 
@@ -576,8 +577,6 @@ fviz_pca_var(res.pca , col.var = "cos2", repel = TRUE)
 ```{r, echo=TRUE,eval=FALSE}
 #VAR et IND
 fviz_pca_biplot(res.pca, repel = TRUE, pointsize = "cos2" )
-#peut faire 2 groupes : regions dvlp et regions pauvres.
-
 ```
 
 Matrice des distances :
@@ -592,13 +591,13 @@ K-means :
 ```{r, echo=TRUE,eval=FALSE}
 km1 <- kmeans(arg, centers =
                 2, nstart = 25)
-#la variance entre les groupes est assez élevé : ≈56%. Nous pourrions faire mieux en partitionnant en 3 groupes par exemple mais ce n'est pas ce qui est voulu.
+#la variance entre les groupes est assez élevée : ≈56%. Nous pourrions faire mieux en partitionnant en 3 groupes par exemple mais ce n'est pas ce qui est voulu.
 fviz_cluster(km1, data = arg, xlab="", ylab="")+ theme_minimal()
 
 ```
 
 ```{r, echo=TRUE,eval=FALSE}
-#tableau de synthese :
+#tableau de synthèse :
 library(dplyr)
 library(kableExtra)
 MClust <- arg %>% mutate(Cluster = km1$cluster) %>%  group_by(Cluster) %>%  summarise_all("mean")
@@ -672,7 +671,7 @@ slice(order_mean1, 1:2)
 ```
 
 
-Determiner les deux provinces les plus vulnérables :
+Déterminer les deux provinces les plus vulnérables :
 
 ```{r, echo=TRUE,eval=FALSE}
 arg3 <- read.csv(file = "https://48652267-876637319111280815.preview.editmysite.com/uploads/4/8/6/5/48652267/argentina.csv",
@@ -710,3 +709,9 @@ arg3 <- mutate(arg3, score_de_pauvrete2_mean  = (poverty + no_healthcare + illit
 order_mean2<-arrange(arg3, desc(score_de_pauvrete2_mean))
 slice(order_mean2, 1:2)
 ```
+
+
+
+
+
+
